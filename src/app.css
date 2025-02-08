@@ -200,4 +200,18 @@
     border-radius: 2px !important;
     padding: 2px !important;
   }
+  .bg-rotated {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-rotated::before {
+    content: "";
+    position: absolute;
+
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    transform: rotate(180deg); /* Adjust the angle */
+  }
 }

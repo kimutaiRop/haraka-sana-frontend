@@ -3,11 +3,14 @@ import { clientOnly } from "@solidjs/start";
 const ScatterPlot = clientOnly(() => import("~/components/scatter-plot"));
 const BarChart = clientOnly(() => import("~/components/barchart"));
 const Sparkline = clientOnly(() => import("~/components/sparkline"));
-
+const TrackLocation = clientOnly(() => import("~/components/track-location"));
+import truck from "~/assets/long-truck.png";
+import pattern from "~/assets/pattern.png";
+import Orders from "~/components/orders";
 export default function Home() {
   return (
-    <div class="w-full flex flex-col mx-auto">
-      <div class="text-center  justify-center p-4  grid grid-cols-3 gap-4">
+    <div class="w-full flex flex-col mx-auto  gap-4 py-4">
+      <div class="text-center px-4   justify-center grid grid-cols-3 gap-4">
         <div class="col-span-1 grid grid-cols-2 gap-4">
           <div class="w-full aspect-square bg-secondary flex flex-col justify-between py-4">
             <div class="flex space-x-1 p-5 items-center">
@@ -170,20 +173,22 @@ export default function Home() {
           <div class="flex flex-col">
             <div class="flex justify-between p-3">
               <div class="flex space-x-2 items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
-                  />
-                </svg>
+                <span class="bg-accent p-1.5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
+                    />
+                  </svg>
+                </span>
 
                 <h2 class="text-accent font-semibold text-2xl">
                   Shipment Analytics{" "}
@@ -207,7 +212,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div class="text-center  p-4 grid grid-cols-3 gap-4">
+      <div class="text-center items-start  px-4 grid grid-cols-3 gap-4">
         <div class="col-span-1 w-full aspect-[8/10] bg-secondary flex flex-col p-4">
           <div class="w-full h-full p-2 flex flex-col">
             <div class="flex justify-between items-center">
@@ -243,6 +248,83 @@ export default function Home() {
                 View Detail
               </button>
             </div>
+          </div>
+        </div>
+        <div class="col-span-2 grid grid-cols-2 gap-4">
+          <div class="col-span-1 w-full aspect-[14/10] bg-secondary flex flex-col justify-between py-4">
+            <TrackLocation />
+          </div>
+          <div
+            class="col-span-1  w-full bg-cover bg-bottom aspect-[14/10] bg-rotated"
+            style={{ "background-image": `url(${pattern})` }}
+          >
+            <div class="w-full  h-full bg-[#085D3A]/90 justify-between py-4 grid grid-cols-2">
+              <div class="w-full flex flex-col p-3 gap-4 justify-between">
+                <div class="flex items-start gap-2">
+                  <span class="bg-accent p-1 rounded-full">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      class="w-7 h-7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M15.075 2.12422C14.615 1.86589 14.125 1.84089 13.6075 1.90506C13.1158 1.96672 12.5166 2.12172 11.7975 2.30922L10.115 2.74589C9.39581 2.93339 8.79748 3.08839 8.33998 3.27422C7.85748 3.46922 7.44081 3.73089 7.17081 4.18506C6.89915 4.64172 6.87248 5.13006 6.93998 5.64006C7.00415 6.12089 7.16498 6.70422 7.35665 7.39922L7.80915 9.03589C8.00081 9.73172 8.16248 10.3142 8.35498 10.7609C8.55915 11.2359 8.83165 11.6401 9.29498 11.9001C9.75498 12.1576 10.245 12.1834 10.7633 12.1184C11.255 12.0576 11.8541 11.9017 12.5733 11.7142L14.2558 11.2776C14.975 11.0909 15.5733 10.9351 16.0308 10.7492C16.5133 10.5542 16.93 10.2926 17.2 9.83839C17.4716 9.38172 17.4983 8.89339 17.4308 8.38422C17.3666 7.90339 17.2058 7.31922 17.0141 6.62422L16.5616 4.98756C16.37 4.29256 16.2083 3.70922 16.0158 3.26256C15.8116 2.78756 15.5375 2.38339 15.075 2.12422ZM12.0716 3.52922C12.8425 3.32922 13.3616 3.19589 13.7633 3.14589C14.1475 3.09756 14.3316 3.14006 14.4658 3.21506C14.5966 3.28839 14.7225 3.41589 14.8683 3.75672C15.0225 4.11506 15.1625 4.61422 15.3691 5.36256L15.7975 6.91506C16.005 7.66339 16.1416 8.16339 16.1925 8.54839C16.2408 8.91422 16.1975 9.08006 16.1258 9.19922C16.0533 9.32172 15.9216 9.44589 15.5633 9.59089C15.19 9.74172 14.6716 9.87839 13.9008 10.0784L12.3008 10.4942C11.53 10.6942 11.0108 10.8276 10.6091 10.8776C10.2241 10.9267 10.0408 10.8842 9.90665 10.8092C9.77581 10.7359 9.64998 10.6076 9.50415 10.2676C9.34998 9.90922 9.20998 9.40922 9.00331 8.66089L8.57498 7.10922C8.36748 6.35922 8.23081 5.86006 8.17998 5.47589C8.13165 5.10922 8.17498 4.94422 8.24665 4.82422C8.31915 4.70172 8.45081 4.57756 8.80915 4.43256C9.18248 4.28172 9.70081 4.14589 10.4716 3.94506L12.0716 3.52922Z"
+                        fill="#FCFCFD"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M2.66664 3.93753C2.50877 3.89883 2.34202 3.92315 2.20178 4.00535C2.06154 4.08755 1.95884 4.22116 1.91548 4.37782C1.87211 4.53448 1.89148 4.70187 1.96949 4.84449C2.0475 4.9871 2.178 5.09371 2.33331 5.1417L3.75248 5.53587C4.10748 5.6342 4.37164 5.90253 4.46164 6.22837L6.08831 12.1142C6.02537 12.1267 5.96284 12.1411 5.90081 12.1575C4.25331 12.585 3.24664 14.2425 3.69831 15.88C4.14831 17.5092 5.85998 18.4484 7.50081 18.0217C8.93748 17.6492 9.88664 16.3417 9.80664 14.9284L16.8233 13.105C16.9028 13.0844 16.9774 13.0483 17.0429 12.9989C17.1084 12.9494 17.1635 12.8875 17.2051 12.8168C17.2467 12.746 17.2739 12.6677 17.2853 12.5864C17.2966 12.5051 17.2919 12.4224 17.2712 12.3429C17.2506 12.2635 17.2145 12.1889 17.1651 12.1234C17.1156 12.0579 17.0537 12.0028 16.983 11.9612C16.9122 11.9196 16.8339 11.8923 16.7526 11.881C16.6713 11.8696 16.5886 11.8744 16.5091 11.895L9.47748 13.7225C9.26712 13.3205 8.97105 12.9696 8.6102 12.6946C8.24936 12.4196 7.83252 12.2271 7.38914 12.1309L5.66664 5.89503C5.56091 5.51991 5.3598 5.17858 5.0829 4.90431C4.806 4.63003 4.46276 4.43218 4.08664 4.33003L2.66664 3.93753ZM6.21581 13.3667C7.22581 13.105 8.23914 13.6909 8.49914 14.6325C8.75748 15.5659 8.19081 16.5517 7.18748 16.8125C6.17748 17.075 5.16414 16.4884 4.90414 15.5467C4.64581 14.6134 5.21248 13.6275 6.21581 13.3667Z"
+                        fill="#FCFCFD"
+                      />
+                    </svg>
+                  </span>
+                  <div class="items-center text-left flex flex-col gap-2">
+                    <h2 class="font-semibold text-xl">Delivery Vehicles</h2>
+                    <p class="text-sm">Minim dolor in amet nulla laboris </p>
+                  </div>
+                </div>
+                <div class="w-full text-left">
+                  <h5 class="font-semibold text-5xl">765</h5>
+                  <span>+5% vs last week</span>
+                </div>
+                <div class="flex ">
+                  <A href="" class="px-5 py-2 bg-accent border gap-2 flex">
+                    <span class="">View Detail</span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </A>
+                </div>
+              </div>
+              <div class="w-full">
+                <img
+                  alt="truck"
+                  class="h-full w-auto object-right object-cover"
+                  src={truck}
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-span-2 w-full">
+            <Orders />
           </div>
         </div>
       </div>

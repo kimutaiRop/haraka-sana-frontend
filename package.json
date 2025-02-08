@@ -13,13 +13,14 @@
     "@solidjs/start": "^1.0.11",
     "@tailwindcss/vite": "^4.0.3",
     "apexcharts": "3.46.0",
-    "flowbite": "^3.1.2",
+    "googlemaps": "^1.12.0",
     "install": "^0.13.0",
     "solid-apexcharts": "^0.4.0",
     "solid-js": "^1.9.2",
-    "solid-start": "^0.3.11",
+    "solid-map-gl": "^1.11.3",
     "tailwindcss": "^4.0.3",
     "tailwindcss-animate": "^1.0.7",
+    "terracotta": "^1.0.6",
     "vinxi": "^0.4.3"
   },
   "overrides": {
@@ -27,5 +28,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.58.1"
   }
 }

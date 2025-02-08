@@ -15,6 +15,12 @@ export default createHandler(() => (
             href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap"
             rel="stylesheet"
           />
+          <script
+            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_API}&libraries=places`}
+            async
+            defer
+          ></script>
+
           {assets}
         </head>
         <body class="dark font-space-grotesk">
