@@ -2,7 +2,7 @@
 
 This fontend page for the [haraka-sana](https://github.com/kimutaiRop/haraka-sana/)
 
-![project Design](https://github.com/kimutaiRop/haraka-sana-fontend/blob/main/home_.png)
+![project Design](https://github.com/kimutaiRop/haraka-sana-fontend/blob/main/home.png)
 
 ## Developing
 
