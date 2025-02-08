@@ -214,4 +214,8 @@
     background-position: center;
     transform: rotate(180deg); /* Adjust the angle */
   }
+  .body-overflow-hidden {
+    overflow-y: hidden; /* Prevent vertical scrollbar */
+    padding-right: 15px; /* Adjust this value based on your scrollbar width, you might need to experiment */
+  }
 }

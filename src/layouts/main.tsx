@@ -1,13 +1,16 @@
 import { A } from "@solidjs/router";
+import { clientOnly } from "@solidjs/start";
+
 import { JSX } from "solid-js";
 import logo from "~/assets/logo.svg";
-import Notifications from "~/components/notifications";
+const Notifications = clientOnly(() => import("~/components/notifications"));
+
 const MainLayout = ({ children }: { children: JSX.Element }) => {
   return (
     <div class="min-h-screen">
       <header class="w-full py-3 bg-secondary flex  justify-between items-center px-4">
         <div class="px-3">
-          <img src={logo} class="h-12" />
+          <img alt="logo" src={logo} class="h-12" />
         </div>
         <div class="flex space-x-12  px-10  items-center text-[#FCFCFD]/50">
           <A href="/" class="space-x-2 flex items-center">
