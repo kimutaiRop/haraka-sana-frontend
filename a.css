@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+@layer utilities {
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+@layer base {
+    .input {
+        @apply active:bg-none focus:bg-none outline-hidden;
+    }
+    :root {
+        --color-background: oklch(99.03% 0.0011 197.14);
+        --color-foreground: 0 0% 3.9%;
+        --color-card: 0 0% 100%;
+        --color-card-foreground: 0 0% 3.9%;
+        --color-popover: 0 0% 100%;
+        --color-popover-foreground: 0 0% 3.9%;
+        --color-primary: 0 0% 9%;
+        --color-primary-foreground: 0 0% 98%;
+        --color-secondary: 0 0% 96.1%;
+        --color-secondary-foreground: 0 0% 9%;
+        --color-muted: 0 0% 96.1%;
+        --color-muted-foreground: 0 0% 45.1%;
+        --color-accent: 0 0% 96.1%;
+        --color-accent-foreground: 0 0% 9%;
+        --color-destructive: 0 84.2% 60.2%;
+        --color-destructive-foreground: 0 0% 98%;
+        --color-border: 0 0% 89.8%;
+        --color-input: 0 0% 89.8%;
+        --color-ring: 0 0% 3.9%;
+        --color-chart-1: 12 76% 61%;
+        --color-chart-2: 173 58% 39%;
+        --color-chart-3: 197 37% 24%;
+        --color-chart-4: 43 74% 66%;
+        --color-chart-5: 27 87% 67%;
+        --color-radius: 0.5rem;
+    }
+    .dark {
+        --color-background: oklch(27.76% 0.0341 255.81);
+        --color-foreground: 0 0% 98%;
+        --color-card: 0 0% 3.9%;
+        --color-card-foreground: 0 0% 98%;
+        --color-popover: 0 0% 3.9%;
+        --color-popover-foreground: 0 0% 98%;
+        --color-primary: 0 0% 98%;
+        --color-primary-foreground: 0 0% 9%;
+        --color-secondary: 0 0% 14.9%;
+        --color-secondary-foreground: 0 0% 98%;
+        --color-muted: 0 0% 14.9%;
+        --color-muted-foreground: 0 0% 63.9%;
+        --color-accent: 0 0% 14.9%;
+        --color-accent-foreground: 0 0% 98%;
+        --color-destructive: 0 62.8% 30.6%;
+        --color-destructive-foreground: 0 0% 98%;
+        --color-border: 0 0% 14.9%;
+        --color-input: 0 0% 14.9%;
+        --color-ring: 0 0% 83.1%;
+        --color-chart-1: 220 70% 50%;
+        --color-chart-2: 160 60% 45%;
+        --color-chart-3: 30 80% 55%;
+        --color-chart-4: 280 65% 60%;
+        --color-chart-5: 340 75% 55%;
+    }
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+@theme {
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
+
+    --color-card: hsl(var(--card));
+    --color-card-foreground: hsl(var(--card-foreground));
+
+    --color-popover: hsl(var(--popover));
+    --color-popover-foreground: hsl(var(--popover-foreground));
+
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
+
+    --color-secondary: hsl(var(--secondary));
+    --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
+
+    --color-accent: hsl(var(--accent));
+    --color-accent-foreground: hsl(var(--accent-foreground));
+
+    --color-destructive: hsl(var(--destructive));
+    --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+    --color-border: hsl(var(--border));
+    --color-input: hsl(var(--input));
+    --color-ring: hsl(var(--ring));
+
+    --color-chart-1: hsl(var(--chart-1));
+    --color-chart-2: hsl(var(--chart-2));
+    --color-chart-3: hsl(var(--chart-3));
+    --color-chart-4: hsl(var(--chart-4));
+    --color-chart-5: hsl(var(--chart-5));
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+
+.deals-swiper {
+    padding: 50px 0;
+}
+
+.deals-swiper .swiper-slide {
+    transition: all 0.3s ease;
+    opacity: 0.4;
+    transform: scale(0.8);
+}
+
+.deals-swiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.deals-swiper .swiper-slide-prev,
+.deals-swiper .swiper-slide-next {
+    opacity: 0.7;
+    transform: scale(0.9);
+    z-index: 1;
+}
+
+.deals-swiper .swiper-button-prev,
+.deals-swiper .swiper-button-next {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.deals-swiper:hover .swiper-button-prev,
+.deals-swiper:hover .swiper-button-next {
+    opacity: 1;
+}
+
+.deals-swiper .swiper-button-disabled {
+    opacity: 0 !important;
+    cursor: not-allowed;
+}
+
+.deal-card {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-slide-active .deal-card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,31 @@
+{
+  "name": "example-basic",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "version": "vinxi version"
+  },
+  "dependencies": {
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.15.3",
+    "@solidjs/start": "^1.0.11",
+    "@tailwindcss/vite": "^4.0.3",
+    "apexcharts": "3.46.0",
+    "flowbite": "^3.1.2",
+    "install": "^0.13.0",
+    "solid-apexcharts": "^0.4.0",
+    "solid-js": "^1.9.2",
+    "solid-start": "^0.3.11",
+    "tailwindcss": "^4.0.3",
+    "tailwindcss-animate": "^1.0.7",
+    "vinxi": "^0.4.3"
+  },
+  "overrides": {
+    "vite": "5.4.10"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
