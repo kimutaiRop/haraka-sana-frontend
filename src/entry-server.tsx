@@ -16,7 +16,7 @@ export default createHandler(() => (
             rel="stylesheet"
           />
           <script
-            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_API}&libraries=places`}
+            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.VITE_MAP_API}&libraries=places`}
             async
             defer
           ></script>
